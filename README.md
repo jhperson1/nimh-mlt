@@ -3,7 +3,7 @@ Data Set: Mood Manipulation Task
 Statistical Goal: Examine how neural networks and logistic regressions compare in modeling the data.
 Computational Goal: Create a predictive and interpretable model of gambling probability that works for any trial for any subject.
 
-Feature Selection
+Feature Selection:
 
 [Create Main Features]
 - Start: Raw Data from Mood Manipulation Interface Task
@@ -49,7 +49,10 @@ Feature Selection
 --reggraphsavefeat(x, y, l)
 
 
+
 Modeling:
+
+Logistic Regression:
 
 [Estimate LOOCV accuracy]
 - Run lr_folds_features.py
@@ -65,7 +68,34 @@ Modeling:
 - End: npy files with weights of logistic regression
 
 [Visualize Weights of a Model Trained on Entire Data Set]
+- Run rankmodelweights.py
+- End: csv file of model weights
+
+[Compare Weights of a Model Trained on Entire Data Set]
 
 - Run modelweightcomparisonheatmap.py
 - End: heatmap with weights of logistic regression
 
+
+
+Neural Network:
+
+[Estimate LOOCV accuracy]
+- Run nn_folds.py
+- End: csv file of results
+
+[Estimate Weights of a Model Trained on Entire Data Set and Bootstrap Resamplings]
+- Run nn_boot_hessians_gradients.py
+-- [DOESNT WORK YET] setting the seed = 0 gets us the original dataset
+-- setting the seed to > 0 gets us some bootstrap resampling of the original dataset
+- End: npy files with hessian variables
+
+[Visualize average weights of quadratic terms of models, Averaged Across 100 Bootstraps, using Hessian matrices]
+
+- Run visualize_hessian.py
+- End: heatmaps of prevalence, positive ratios, negative ratios and average hessian values
+
+[Visualize average weights of linear main effect terms of models, Averaged Across 100 Bootstraps, using gradients]
+
+- [DOESNT WORK YET] Run visualize_gradient.py
+- End: heatmaps of prevalence, positive ratios, negative ratios and average gradient values
