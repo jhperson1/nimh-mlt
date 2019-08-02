@@ -32,17 +32,40 @@ Feature Selection
 [Average Stability Calculations]
 - Start: npy files for the stability values at different levels of L1 regularization
 - Data Analysis: areas.py and areas_to_npy.py
-- End: csv file with the names and average stabilities of all features (averaged across lambda values), npy file with the average stabilities of all features
+- End: csv file with the names and average stabilities of all features (averaged across lambda values), npy file with ranking of indices of the top most stable (on average) features
+
+[Picking Number of Most Stable Features]
+- Start: ranking of indices of most stable features
+- Data Analysis: lr_acc_features.py
+- End: graph of LOOCV accuracy of models trained on 0 features, 1 top most stable feature, top 2 most stable features, top 3 most stable features, ..., all the way to 45 features (9 main features + 36 interactions). You can pick a sufficient number of features by seeing which # of features achieves the global maximum LOOCV accuracy
+- pro tip: you can go back and visualize stability and regularization plots for only these features by using running the following commands in lr_stab2_features.py to use NFEATS:
+--ind_a = np.load("areas_areas_indices_" + ET + ".npy")
+--ind_m = np.load("areas_maxes_indices_" + ET + ".npy")
+--print ind_a
+--print ind_m
+--l = ind_a[:NFEATS]
+--print len(l)
+--stabgraphsavefeat(x, y, l)
+--reggraphsavefeat(x, y, l)
 
 
+[]
 
 
 
 
 Modeling: LOOCV
 
+Estimate LOOCV accuracy
+- Run lr_folds_features.py
+
+
 
 Modeling: Transfer
+
+Estimate Transfer Accuracy:
+- Run lr_test_acc_features.py
+
 
 
 Modeling: Entire Data Set
