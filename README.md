@@ -49,26 +49,23 @@ Feature Selection
 --reggraphsavefeat(x, y, l)
 
 
-[]
+Modeling:
 
-
-
-
-Modeling: LOOCV
-
-Estimate LOOCV accuracy
+[Estimate LOOCV accuracy]
 - Run lr_folds_features.py
+- End: csv file of results
 
-
-
-Modeling: Transfer
-
-Estimate Transfer Accuracy:
+[Estimate Transfer Accuracy]:
 - Run lr_test_acc_features.py
+- End: csv file of results
 
+[Estimate Weights of a Model Trained on Entire Data Set]
 
+- Run modelweightcomparison.py
+- End: npy files with weights of logistic regression
 
-Modeling: Entire Data Set
+[Visualize Weights of a Model Trained on Entire Data Set]
 
-
+- Run modelweightcomparisonheatmap.py
+- End: heatmap with weights of logistic regression
 
