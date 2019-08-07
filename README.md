@@ -1,7 +1,14 @@
-Scientific Goal: Understand how mood affects gambling
-Data Set: Mood Manipulation Task
-Statistical Goal: Examine how neural networks and logistic regressions compare in modeling the data.
-Computational Goal: Create a predictive and interpretable model of gambling probability that works for any trial for any subject.
+- Scientific Goal: Understand how mood affects gambling
+- Data Set: Mood Manipulation Task
+- Statistical Goal: Examine how neural networks and logistic regressions compare in modeling the data.
+- Computational Goal: Create a predictive and interpretable model of gambling probability that works for any trial for any subject.
+
+Subjects:
+
+[Explore Subject Characteristics] * necessary step for future analyses
+- Start: Raw Data from Mood Manipulation Interface Task
+- Data Analysis: gp.py
+- End: csv file called 'gps_[experiment].csv' which lists subjects and their characteristics. The subject ids in this file will be used for future analyses that look at cross-subject validation for example
 
 Feature Selection:
 
